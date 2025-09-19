@@ -7,7 +7,7 @@ A production-ready Retrieval-Augmented Generation (RAG) system that enables inte
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.28.0-red.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-[Live Demo](https://rag-document-app-n9nrripappuptgnnafem92v.streamlit.app/) | [Documentation](#api-documentation)
+[Live Demo](https://rag-document-app-n9nrripappuptgnnafem92v.streamlit.app/) 
 
 ## Features
 
