@@ -7,7 +7,7 @@ A production-ready Retrieval-Augmented Generation (RAG) system that enables inte
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.28.0-red.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-**[Live Demo](https://rag-document-app-n9nrripappuptgnnafem92v.streamlit.app/)** | **[Documentation](#api-documentation)**
+[Live Demo](https://rag-document-app-n9nrripappuptgnnafem92v.streamlit.app/) | [Documentation](#api-documentation)
 
 ## Features
 
@@ -21,33 +21,16 @@ A production-ready Retrieval-Augmented Generation (RAG) system that enables inte
 
 ## Architecture
 
+The system follows a modular architecture:
 
-
-                
-┌─────────────────┐ ┌─────────────────┐ ┌──────────────────┐
-│ │ │ │ │ │
-│ Streamlit UI │────▶│ FastAPI │────▶│ ChromaDB │
-│ (Frontend) │ │ (Backend) │ │ (Vector Store) │
-│ │ │ │ │ │
-└─────────────────┘ └─────────────────┘ └──────────────────┘
-│ │ │
-└───────────────────────┴────────────────────────┘
-│
-┌────────────┴─────────────┐
-│ │
-│ LangChain Pipeline │
-│ - Document Processing │
-│ - Embeddings (HF) │
-│ - RAG Chain │
-│ │
-└──────────────────────────┘
-
-
-
+- **Frontend**: Streamlit UI for user interactions
+- **Backend**: FastAPI server handling requests
+- **Vector Store**: ChromaDB for semantic search
+- **Processing Pipeline**: LangChain for document processing and RAG
 
 ## Live Demo
 
-**[Try the Live Demo Here](https://rag-document-app-n9nrripappuptgnnafem92v.streamlit.app/)**
+[Try the Live Demo Here](https://rag-document-app-n9nrripappuptgnnafem92v.streamlit.app/)
 
 ### Demo Features
 - Interactive search interface
@@ -90,7 +73,7 @@ git clone https://github.com/MrKunalSharma/rag-document-qa.git
 cd rag-document-qa/rag-document-qa
 
 
-          
+                
 Create virtual environment:
 
           
@@ -277,9 +260,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Author
 Kunal Sharma
 
-GitHub: @MrKunalSharma
-LinkedIn: Kunal Sharma
-Email: kunalsharma135790@gmail.com
+GitHub: https://github.com/MrKunalSharma/rag-document-qa
+LinkedIn: https://www.linkedin.com/in/kunal-sharma-1a8457257/
+Email: kunalsharma13579kunals@gmail.com
 Acknowledgments
 LangChain for the excellent RAG framework
 Sentence Transformers team for the embedding models
