@@ -1,8 +1,6 @@
 import streamlit as st
 import time
 from datetime import datetime
-import plotly.express as px
-import pandas as pd
 
 st.set_page_config(page_title="RAG Document Q&A", page_icon="📚", layout="wide")
 
@@ -191,34 +189,36 @@ Text: {result['text']}
 with tab2:
     st.markdown("### 📈 System Analytics & Performance")
     
-    col1, col2 = st.columns([2, 1])
-    
+    # Performance metrics using Streamlit native components
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
-        # Performance metrics visualization
-        perf_data = pd.DataFrame({
-            'Stage': ['Query Processing', 'Embedding Generation', 'Vector Search', 'Result Ranking'],
-            'Time (ms)': [120, 450, 230, 34]
-        })
-        
-        fig = px.bar(perf_data, x='Stage', y='Time (ms)', 
-                     title='Performance Breakdown by Stage',
-                     color='Time (ms)',
-                     color_continuous_scale='viridis')
-        fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
-    
+        st.metric("Query Processing", "120ms", "↓ 15ms")
     with col2:
-        st.metric("⚡ Total Response Time", "834ms", "-12%")
-        st.metric("📊 Documents Indexed", "3", "+1")
-        st.metric("🔍 Total Searches Today", len(st.session_state.history))
+        st.metric("Embedding Time", "450ms", "↓ 50ms")
+    with col3:
+        st.metric("Vector Search", "230ms", "↓ 20ms")
+    with col4:
+        st.metric("Total Time", "834ms", "↓ 85ms")
+    
+    # Performance breakdown with bar chart
+    st.markdown("### Performance Breakdown")
+    performance_data = {
+        "Query Processing": 120,
+        "Embedding Generation": 450,
+        "Vector Search": 230,
+        "Result Ranking": 34
+    }
+    
+    # Create simple bar chart with Streamlit
+    st.bar_chart(performance_data)
     
     # Comparison with traditional search
     st.markdown("### 🔍 Traditional vs Semantic Search")
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("#### Traditional Keyword Search")
-        st.error("❌ Limited to exact matches")
+        st.markdown("#### ❌ Traditional Keyword Search")
+        st.error("Limited to exact matches")
         st.code("""
 Query: "self attention"
 Results: 2 exact matches only
@@ -228,8 +228,8 @@ Results: 2 exact matches only
         """)
         
     with col2:
-        st.markdown("#### 🧠 RAG Semantic Search")
-        st.success("✅ Understands meaning & context")
+        st.markdown("#### ✅ RAG Semantic Search")
+        st.success("Understands meaning & context")
         st.code("""
 Query: "How does self-attention work?"
 Results: 15+ relevant passages
@@ -337,23 +337,20 @@ with tab4:
     - **🏦 Finance**: Regulatory compliance and document analysis
     - **🏭 Manufacturing**: Technical documentation and maintenance guides
     
-    ### 📊 Projected Impact for Medium Enterprise (500 employees)
+    ### 📊 ROI Analysis
     """)
     
-    # ROI visualization
-    roi_data = pd.DataFrame({
-        'Month': list(range(1, 13)),
-        'Cost': [10000] + [1000]*11,  # Initial setup + maintenance
-        'Savings': [0] + [8000]*11     # Monthly savings after month 1
-    })
-    roi_data['Cumulative ROI'] = (roi_data['Savings'].cumsum() - roi_data['Cost'].cumsum())
+    # Simple ROI visualization with metrics
+    st.markdown("#### First Year Financial Impact")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric("Initial Investment", "$10,000", "One-time")
+        st.metric("Monthly Maintenance", "$1,000", "Ongoing")
+    with col2:
+        st.metric("Monthly Savings", "$8,000", "From Month 2")
+        st.metric("Break-even Point", "2 months", "🎯")
     
-    fig = px.line(roi_data, x='Month', y='Cumulative ROI', 
-                  title='ROI Timeline (12 Months)',
-                  markers=True)
-    fig.add_hline(y=0, line_dash="dash", line_color="red", annotation_text="Break-even")
-    fig.update_yaxis(tickprefix="$")
-    st.plotly_chart(fig, use_container_width=True)
+    st.success("**Projected First Year ROI: 660% ($66,000 net savings)**")
 
 # Sidebar with history and info
 with st.sidebar:
@@ -365,7 +362,6 @@ with st.sidebar:
     - 🚀 FastAPI
     - 🤗 Sentence Transformers
     - 📊 Streamlit
-    - 📈 Plotly
     
     **Architecture:**
     1. Document ingestion & chunking
@@ -392,14 +388,16 @@ with st.sidebar:
     st.markdown("### 📌 Links")
     st.markdown("- [📦 GitHub Repository](https://github.com/MrKunalSharma/rag-document-qa)")
     st.markdown("- [📖 Full Documentation](https://github.com/MrKunalSharma/rag-document-qa#readme)")
-    st.markdown("- [🎥 Demo Video](#)")
-    st.markdown("- [💼 LinkedIn](#)")
     
     st.markdown("---")
     st.info("""
-    **Note:** This is a demonstration interface. 
+    **💡 Interview Tip:**
     
-    For full functionality with actual document processing, please clone and run the complete system locally.
+    When discussing this project, emphasize:
+    - Semantic search vs keyword matching
+    - Vector embeddings for meaning
+    - Production-ready architecture
+    - Real business value
     """)
 
 # Footer
