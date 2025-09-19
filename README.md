@@ -216,7 +216,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - GitHub: [@MrKunalSharma](https://github.com/MrKunalSharma)
 - LinkedIn: [Kunal Sharma](https://www.linkedin.com/in/kunal-sharma-1a8457257/)
-- Email: kunalsharma135790@gmail.com
+- Email: kunalsharma13579kunals@gmail.com
 
 ## Acknowledgments
 
