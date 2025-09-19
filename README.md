@@ -1,16 +1,4 @@
-
----
-title: RAG Document QA
-emoji: 📚
-colorFrom: purple
-colorTo: red
-sdk: streamlit
-sdk_version: "1.28.1"
-app_file: app.py
-pinned: false
----
-
-# 📚 RAG Document Q&A System
+# RAG Document Q&A System
 
 A production-ready Retrieval-Augmented Generation (RAG) system that enables intelligent question-answering over PDF documents using semantic search and natural language processing.
 
@@ -19,46 +7,67 @@ A production-ready Retrieval-Augmented Generation (RAG) system that enables inte
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.28.0-red.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-🔗 **[Live Demo](https://rag-document-app-n9nrripappuptgnnafem92v.streamlit.app/)** 
+**[Live Demo](https://rag-document-app-n9nrripappuptgnnafem92v.streamlit.app/)** | **[Documentation](#api-documentation)**
 
-## 🌟 Features
+## Features
 
-- **🔍 Semantic Search**: Find relevant information using natural language queries, not just keywords
-- **📄 Multi-Document Support**: Process and search across multiple PDF files simultaneously
-- **⚡ Real-time Processing**: Sub-second query response times with efficient vector search
-- **🎯 Dual Mode Operation**: Works with or without OpenAI API for flexibility
-- **🚀 RESTful API**: Well-documented API endpoints for easy integration
-- **💾 Persistent Storage**: ChromaDB vector database with 425+ indexed document chunks
-- **🎨 Interactive UI**: Beautiful Streamlit interface with real-time results
+- **Semantic Search**: Find relevant information using natural language queries, not just keywords
+- **Multi-Document Support**: Process and search across multiple PDF files simultaneously
+- **Real-time Processing**: Sub-second query response times with efficient vector search
+- **Dual Mode Operation**: Works with or without OpenAI API for flexibility
+- **RESTful API**: Well-documented API endpoints for easy integration
+- **Persistent Storage**: ChromaDB vector database with 425+ indexed document chunks
+- **Interactive UI**: Beautiful Streamlit interface with real-time results
 
-
-
-
+## Architecture
 
 
-## 🚀 Live Demo
 
-🔗 **[Try the Live Demo Here](https://rag-document-app-n9nrripappuptgnnafem92v.streamlit.app/)**
+                
+┌─────────────────┐ ┌─────────────────┐ ┌──────────────────┐
+│ │ │ │ │ │
+│ Streamlit UI │────▶│ FastAPI │────▶│ ChromaDB │
+│ (Frontend) │ │ (Backend) │ │ (Vector Store) │
+│ │ │ │ │ │
+└─────────────────┘ └─────────────────┘ └──────────────────┘
+│ │ │
+└───────────────────────┴────────────────────────┘
+│
+┌────────────┴─────────────┐
+│ │
+│ LangChain Pipeline │
+│ - Document Processing │
+│ - Embeddings (HF) │
+│ - RAG Chain │
+│ │
+└──────────────────────────┘
 
-### Demo Features:
+
+
+
+## Live Demo
+
+**[Try the Live Demo Here](https://rag-document-app-n9nrripappuptgnnafem92v.streamlit.app/)**
+
+### Demo Features
 - Interactive search interface
 - Sample questions for quick testing
 - File upload demonstration
 - Performance analytics
 - Technical architecture details
 
-## 📊 Performance Metrics
+## Performance Metrics
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **Query Response Time** | < 1 second | End-to-end search latency |
-| **Document Chunks** | 425+ | Searchable text segments |
-| **Embedding Dimensions** | 384 | Using all-MiniLM-L6-v2 |
-| **Similarity Accuracy** | 87.8% | Relevance score threshold |
-| **Chunk Size** | 1000 chars | Optimal context preservation |
-| **Chunk Overlap** | 200 chars | Ensures continuity |
+| Query Response Time | < 1 second | End-to-end search latency |
+| Document Chunks | 425+ | Searchable text segments |
+| Embedding Dimensions | 384 | Using all-MiniLM-L6-v2 |
+| Similarity Accuracy | 87.8% | Relevance score threshold |
+| Chunk Size | 1000 chars | Optimal context preservation |
+| Chunk Overlap | 200 chars | Ensures continuity |
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend**: FastAPI, LangChain, ChromaDB
 - **Frontend**: Streamlit
@@ -67,13 +76,13 @@ A production-ready Retrieval-Augmented Generation (RAG) system that enables inte
 - **Processing**: PyPDF for document extraction
 - **Optional**: OpenAI API for enhanced generation
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Python 3.9 or higher
 - pip package manager
 - (Optional) OpenAI API key for full RAG functionality
 
-## 🛠️ Installation
+## Installation
 
 1. **Clone the repository:**
 ```bash
@@ -117,7 +126,7 @@ echo "OPENAI_API_KEY=your_key_here" > .env
 
 
                 
-🏃‍♂️ Running the Complete System
+Running the Complete System
 Start the Backend API:
 
           
@@ -144,7 +153,7 @@ streamlit run src/frontend/app.py
                 
 Access the UI at http://localhost:8501
 
-📚 Project Structure
+Project Structure
 
 
 
@@ -167,7 +176,7 @@ rag-document-qa/
 
 
           
-📝 API Documentation
+API Documentation
 Health Check
 
           
@@ -234,27 +243,27 @@ json
 
 
                 
-🔧 Configuration
+Configuration
 Parameter	Default	Description
 chunk_size	1000	Characters per chunk
 chunk_overlap	200	Overlap between chunks
 embedding_model	all-MiniLM-L6-v2	HuggingFace model
 vector_dimensions	384	Embedding dimensions
 similarity_metric	cosine	Distance calculation
-🎯 Use Cases
-📚 Academic Research: Search through research papers and citations
-⚖️ Legal Documentation: Find relevant cases and precedents
-🏥 Healthcare: Search medical literature and patient records
-🏢 Enterprise Knowledge Base: Internal documentation search
-📖 Educational Content: Smart library and course material search
-🚀 Future Enhancements
+Use Cases
+Academic Research: Search through research papers and citations
+Legal Documentation: Find relevant cases and precedents
+Healthcare: Search medical literature and patient records
+Enterprise Knowledge Base: Internal documentation search
+Educational Content: Smart library and course material search
+Future Enhancements
 [ ] Multi-language support
 [ ] GPU acceleration for embeddings
 [ ] Real-time document upload via API
 [ ] Advanced filtering options
 [ ] Export results to various formats
 [ ] User authentication and management
-🤝 Contributing
+Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 Fork the repository
@@ -262,24 +271,20 @@ Create your feature branch (git checkout -b feature/AmazingFeature)
 Commit your changes (git commit -m 'Add some AmazingFeature')
 Push to the branch (git push origin feature/AmazingFeature)
 Open a Pull Request
-📝 License
+License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-👨‍💻 Author
+Author
 Kunal Sharma
 
-🔗 GitHub: [@MrKunalSharma](https://github.com/MrKunalSharma/rag-document-qa)
-💼 LinkedIn: [Kunal Sharma](https://www.linkedin.com/in/kunal-sharma-1a8457257/)
-📧 Email: kunalsharma13579kunals@gmail.com
-🙏 Acknowledgments
+GitHub: @MrKunalSharma
+LinkedIn: Kunal Sharma
+Email: kunalsharma135790@gmail.com
+Acknowledgments
 LangChain for the excellent RAG framework
 Sentence Transformers team for the embedding models
 ChromaDB for the vector database
 Streamlit for the amazing UI framework
-<p align="center">
 Built with ❤️ for the AI community
-<br>
+
 ⭐ Star this repo if you find it helpful!
-</p>
-
-
