@@ -1,3 +1,12 @@
+title: RAG Document QA
+emoji: 📚
+colorFrom: purple
+colorTo: red
+sdk: streamlit
+sdk_version: "1.28.1"
+app_file: app.py
+pinned: false
+---
 
 # 📚 RAG Document Q&A System
 
