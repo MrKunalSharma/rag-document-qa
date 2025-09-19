@@ -1,3 +1,4 @@
+
 ---
 title: RAG Document QA
 emoji: 📚
@@ -58,7 +59,7 @@ A production-ready Retrieval-Augmented Generation (RAG) system that enables inte
 
 ## 🚀 Live Demo
 
-🔗 **[Try the Live Demo Here](https://your-streamlit-app-url.streamlit.app)**
+🔗 **[Try the Live Demo Here](https://rag-document-app-n9nrripappuptgnnafem92v.streamlit.app/)**
 
 ### Demo Features:
 - Interactive search interface
@@ -288,9 +289,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 👨‍💻 Author
 Kunal Sharma
 
-🔗 GitHub: @MrKunalSharma
-💼 LinkedIn: Kunal Sharma
-📧 Email: your.email@example.com
+🔗 GitHub: [@MrKunalSharma](https://github.com/MrKunalSharma/rag-document-qa)
+💼 LinkedIn: [Kunal Sharma](https://www.linkedin.com/in/kunal-sharma-1a8457257/)
+📧 Email: kunalsharma13579kunals@gmail.com
 🙏 Acknowledgments
 LangChain for the excellent RAG framework
 Sentence Transformers team for the embedding models
@@ -301,3 +302,5 @@ Built with ❤️ for the AI community
 <br>
 ⭐ Star this repo if you find it helpful!
 </p>
+
+
